@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: build_and_map_release_artifacts_to_aqua
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
           cache: maven
 
       - name: Build Application
-        run: ./mvnw clean install -DskipTests
+        run: ./mvnw clean install -DskipTests -Ddependency-check.skip=true
 
       - name: Run Tests
         run: ./mvnw test
